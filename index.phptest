@@ -1,0 +1,234 @@
+<?php session_start(); ?>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <link rel="shortcut icon" href="img/sliders/logomini.png">
+    <title>Connexion/Inscription</title>
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta name="author" content="">
+
+    <!-- Bootstrap Css -->
+    <link href="bootstrap-assets/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Style -->
+    <link href="plugins/owl-carousel/owl.carousel.css" rel="stylesheet">
+    <link href="plugins/owl-carousel/owl.theme.css" rel="stylesheet">
+    <!--<link href="plugins/owl-carousel/owl.transitions.css" rel="stylesheet">-->
+    <link href="plugins/Lightbox/dist/css/lightbox.css" rel="stylesheet">
+    <link href="plugins/Icons/et-line-font/style.css" rel="stylesheet">
+    <link href="plugins/animate.css/animate.css" rel="stylesheet">
+    <link href="css/index.css" rel="stylesheet">
+    <!-- Icons Font -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<body>
+    <!-- Preloader
+	============================================= -->
+    <div class="preloader"><i class="fa fa-circle-o-notch fa-spin fa-2x"></i></div>
+    <!-- Header
+	============================================= -->
+        <section class="main-header">
+            <nav class="navbar navbar-default navbar-fixed-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="index.php?page=index"><img src="img/logo/logo.png" class="img-responsive" alt="logo"></a>
+                </div>
+                <div class="collapse navbar-collapse text-center" id="bs-example-navbar-collapse-1">
+                    <div class="col-md-8 col-xs-12 nav-wrap">
+                        <ul class="nav navbar-nav">
+                            <li><a href="index.php?page=index" class="page-scroll">Accueil</a></li>
+                            <li><a href="#services" class="page-scroll">Cooptations</a></li>
+                            <li><a href="#portfolio" class="page-scroll">Coopter</a></li>
+                            <li><a href="https://intra.extia.fr/login/" class="page-scroll">Intranet</a></li>
+                        </ul>
+                    </div>
+                    <div class="social-media hidden-sm hidden-xs">
+                        <ul class="nav navbar-nav">
+                            <li><a href="https://www.facebook.com/talentextia"><i class="fa fa-facebook"></i></a></li>
+                            <li><a href="https://twitter.com/extia_conseil"><i class="fa fa-twitter"></i></a></li>
+                            <li><a href="https://www.linkedin.com/company/extia">in</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </nav>
+        <div id="owl-hero" class="owl-carousel owl-theme">
+                <?php
+                    if (empty($_GET['page']) || $_GET['page'] == 'index') {
+                         echo '<div class="item" style="background-image: url(img/sliders/background.jpg)">
+                        <div class="caption">
+                        </br></br></br></br><a class="btn btn-transparent" href="index.php?page=connexion">Connexion</a>
+                     <a class="btn btn-light" href="index.php?page=inscription">Inscription</a>'; }
+                    else if ($_GET['page'] == 'connexion') {
+                    echo '<div class="item" style="background-image: url(img/sliders/background.jpg)">
+                        <div class="caption"><form action="untitled.php" method="post">
+                        </br></br></br></br><input type="text" placeholder="Login" name="Login" required>
+                        </br>
+                        <input type="password" placeholder="Password" name="Mdp" required>
+                        </br>
+                        <input id ="connect" type="submit" value="Se connecter"/>
+                        </form>'; }
+                    else if ($_GET['page'] == 'inscription') {
+                    echo '
+                    <div class="item" style="background-image: url(img/sliders/background.jpg)">
+                <div class="caption">
+                    <div id="lol" style="background-color: white" class="col-md-6 col-md-offset-3 wow fadeInUp" data-wow-delay=".3s">
+            <div id="contact">
+                <h2>Inscription</h2>
+                        <hr class="sep">
+            <form method="post" enctype="multipart/form-data" action="inscription.php" >
+                
+                    <div class="col-lg-6">
+                   <div class="form-group">
+                       <label for="Nom"><strong>Nom :</strong></label>
+                     <input type="text" class="form-control" id="Nom" placeholder="Nom" name="Nom" required>
+                 </div>
+                  <div class="form-group">
+                      <label for="Prenom"><strong>Prenom :</strong></label>
+                     <input type="text" class="form-control" id="Prenom" placeholder="Prenom" name="Prenom" required>
+                 </div>
+                     <div class="form-group">
+                      <label for="RH"><strong>Responsable R.H. :</strong></label>
+                     <input type="text" class="form-control" id="RH" placeholder="RH" name="RH" required>
+                 </div>
+                 <div class="form-group">
+                        <label for="Agence"><strong>Agence :</strong></label>
+                     <input type="text" class="form-control" id="Agence" placeholder="Agence" name="Agence" required>
+                 </div>
+                 </div>
+                 <div class="col-lg-6">
+                    <div class="form-group">
+                       <label for="Email"><strong>Email :</strong></label>
+                      <input type="Email" class="form-control" id="Email" placeholder="Email" name="Mail" required>
+                   </div>
+                    <div class="form-group">
+                       <label for="Login"><strong>Login :</strong></label>
+                      <input type="text" class="form-control" id="Login" placeholder="Login" name="Login" required>
+                   </div>
+                   <div class="form-group">
+                      <label for="Mdp"><strong>Mot de passe :</strong></label>
+                     <input type="password" class="form-control" id="Mdp" placeholder="Mot de passe" name="Mdp" required>
+                 </div>
+                  <div class="form-group">
+                      <label for="Mdp2"><strong>Confirmation mot de passe :</strong></label>
+                     <input type="password" class="form-control" id="Mdp" placeholder="Confirmation Mot de passe" name="Mdp2" required>
+                 </div>
+                 </div>
+                 </div>';
+                        //Inscription
+                        $bdd = mysqli_connect('127.0.0.1','user','mypass','Extia_Coop');
+                        
+                        //On assigne des variables à chaques données pour les traiter
+                        $nom = $_POST['Nom'];
+                        $prenom = $_POST['Prenom'];
+                        $mail = $_POST['Mail'];
+                        $agence = $_POST['Agence'];
+                        $RH = $_POST['RH'];
+                        $login = $_POST['Login'];
+                        $mdp = $_POST['Mdp'];
+                        $mdp2 = $_POST['Mdp2'];
+                        
+                        //On se protège ensuite des injections SQL
+                        $nom = mysqli_real_escape_string($bdd, $nom);
+                        $prenom = mysqli_real_escape_string($bdd, $prenom);
+                        $mail = mysqli_real_escape_string($bdd, $mail);
+                        $agence = mysqli_real_escape_string($bdd, $agence);
+                        $RH = mysqli_real_escape_string($bdd, $RH);
+                        $login = mysqli_real_escape_string($bdd, $login);
+                        $mdp = mysqli_real_escape_string($bdd, $mdp);
+                        $mdp2 = mysqli_real_escape_string($bdd, $mdp2);
+                        
+                        $nom = addcslashes($nom, '%_');
+                        $prenom = addcslashes($prenom, '%_');
+                        $mail = addcslashes($mail, '%');
+                        $agence = addcslashes($agence, '%_');
+                        $RH = addcslashes($RH, '%_');
+                        $login = addcslashes($login, '%');
+                        $mdp = addcslashes($mdp, '%_');
+                        $mdp2 = addcslashes($mdp2, '%_');
+                        if (isset($nom) && !empty($nom) && isset($prenom) && !empty($mail) && isset($mail) && !empty($agence) 
+                        && isset($agence) && isset($RH) && !empty($RH) && isset($mdp) && !empty($mdp) && isset($login) 
+                        && !empty($login) && isset($mdp2) && !empty($mdp2))
+                            {
+                                $confmail = mysqli_query($bdd, 'SELECT Mail FROM Utilisateur WHERE Mail = "'.$mail.'"');
+                                    if ($confmail == false && mysqli_num_rows($confmail) == 0)
+                                        {
+                                                    $query = 'INSERT INTO `Utilisateur` (`Photo`,`Nom`,`Prenom`,`Mail`,`Agence`,`RH`,`Login`,`Mdp`,`Role`)
+                                                    VALUES ("photo","'.$nom.'","'.$prenom.'","'.$mail.'","'.$agence.'","'.$RH.'","'.$login.'","'.$mdp.'",1)';
+                                                    mysqli_query($bdd, $query);
+                                                    echo "Vous êtes bien inscrit.</br>";
+                                        }
+                                    else
+                                        {
+                                            echo "L'email saisi est déjà inscrit.";
+                                        }
+                            }
+                        else if (empty($nom) || empty($prenom) || empty($mail) || empty($agence) || empty($RH) || empty($mdp))
+                            {
+                                echo "Attention tous les champs sont obligatoires !";
+                            }
+                        else
+                            echo 'Les informations fournies ne vous permettent pas de vous inscrire.';
+                        echo ' <input type="submit" name="submit" class="btn-block" value="S\'inscrire"/>
+                    <br/>
+                   </form>
+           </div>
+                </div>
+            </div>
+                    </div>
+    </section>';
+                } ?>
+        </div>
+    </section>
+    
+    <!-- Footer
+	============================================= -->
+    <footer>
+        <div class="container">
+            <h1>EXTIA</h1>
+            <div class="social">
+                <a href="#"><i class="fa fa-facebook fa-2x"></i></a>
+                <a href="#"><i class="fa fa-twitter fa-2x"></i></a>
+            </div>
+            <h6>&copy; 2015 Rise.Development By BootstrapDev</h6>
+        </div>
+    </footer>
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="bootstrap-assets/js/bootstrap.min.js"></script>
+    <script src="js/custom.js"></script>
+    <!-- JS PLUGINS -->
+    <script src="plugins/owl-carousel/owl.carousel.min.js"></script>
+    <script src="js/jquery.easing.min.js"></script>
+    <script src="plugins/waypoints/jquery.waypoints.min.js"></script>
+    <script src="plugins/countTo/jquery.countTo.js"></script>
+    <script src="plugins/inview/jquery.inview.min.js"></script>
+    <script src="plugins/Lightbox/dist/js/lightbox.min.js"></script>
+    <script src="plugins/WOW/dist/wow.min.js"></script>
+    <!-- GOOGLE MAP -->
+    <script src="https://maps.googleapis.com/maps/api/js"></script>
+</body>
+
+</html>
